@@ -1,12 +1,23 @@
-{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+</head>
+<body>
+    <h1>Car Price Prediction</h1>
+    <form action="/" method="post">
+        <label for="age">Age:</label>
+        <input type="number" name="age" required><br>
+        <label for="mileage">Mileage:</label>
+        <input type="number" name="mileage" required><br>
+        <input type="submit" value="Predict">
+    </form>
 
-<title>Welcome</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-{% endblock %}
-
-{% block body %}
-<div class="content">
-    <h1 style="text-align: center">Welcome to the Github-ECR-EC2 Workflow</h1>
-
-</div>
-{% endblock %}
+    {% if prediction is defined %}
+        <h2>Predicted Sell Price:</h2>
+        <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
